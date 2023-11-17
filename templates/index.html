@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Halaman Website Saya</title>
+    <meta property="og:title" content="Personal Diary">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Tugas Learning-x Minggu 3 WR-103 Web Development Intermediate">
+    <meta property="og:image" content="{{url_for('static', filename='img/meta/meta-image.png')}}">
+    <title>Personal Diary</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{{url_for('static', filename='style/style.css')}}" />
+    <!-- Import SweetAlert CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.min.css" />
+  </head>
+  <body>
+    <div class="test"></div>
+    <div class="container">
+      <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+        <div class="container-fluid py-5">
+          <h1 class="display-5 fw-bold">Personal Diary</h1>
+          <div class="input-group mb-3 custom-file">
+            <label class="input-group-text" for="gambar">Card Image</label>
+            <input type="file" class="form-control" id="gambar" required />
+          </div>
+          <div class="input-group mb-3 custom-file">
+            <label class="input-group-text" for="profile">Profile Image</label>
+            <input type="file" class="form-control" id="profil" required/>
+          </div>
+          <div class="form-floating mb-3">
+            <div>
+              <input type="text" class="form-control" id="image-title" placeholder="Title For Your Image" />
+            </div>
+          </div>
+          <div class="form-floating">
+            <div>
+              <textarea type="text" class="form-control" placeholder="Comentar" id="komentar"></textarea>
+            </div>
+          </div>
+        </div>
+        <button onclick="posting()" id="save-btn" class="btn btn-primary btn-lg" type="button">Save</button>
+      </div>
+
+      <div id="test"></div>
+
+      <div class="row justify-content-start" id="card-box">
+        <div class="col-4">
+          <div class="card" aria-hidden="true">
+            <svg class="bd-placeholder-img card-img-top" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="#868e96"></rect>
+            </svg>
+            <div class="card-body">
+              <div class="h5 card-title placeholder-glow">
+                <span class="placeholder col-6"></span>
+              </div>
+              <p class="card-text placeholder-glow">
+                <span class="placeholder col-7"></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-6"></span>
+                <span class="placeholder col-8"></span>
+              </p>
+              <a class="btn btn-primary disabled placeholder col-6"></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card" aria-hidden="true">
+            <svg class="bd-placeholder-img card-img-top" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="#868e96"></rect>
+            </svg>
+            <div class="card-body">
+              <div class="h5 card-title placeholder-glow">
+                <span class="placeholder col-6"></span>
+              </div>
+              <p class="card-text placeholder-glow">
+                <span class="placeholder col-7"></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-6"></span>
+                <span class="placeholder col-8"></span>
+              </p>
+              <a class="btn btn-primary disabled placeholder col-6"></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card" aria-hidden="true">
+            <svg class="bd-placeholder-img card-img-top" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="#868e96"></rect>
+            </svg>
+            <div class="card-body">
+              <div class="h5 card-title placeholder-glow">
+                <span class="placeholder col-6"></span>
+              </div>
+              <p class="card-text placeholder-glow">
+                <span class="placeholder col-7"></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-6"></span>
+                <span class="placeholder col-8"></span>
+              </p>
+              <a class="btn btn-primary disabled placeholder col-6"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  import bootstrap ajax -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <!-- Import SweetAlert JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.min.js"></script>
+    <!--  import custom file uploader -->
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+  </body>
+</html>
